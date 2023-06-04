@@ -2,6 +2,6 @@ import streamlit as st
 
 file = open("test.md", "r")
 
-st.write(file.read())
+st.markdown(file.read())
 
 file.close()
