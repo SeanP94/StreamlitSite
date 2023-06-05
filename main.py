@@ -8,25 +8,35 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-imgCol, introCol = st.columns([.3,.7])
+imgCol, _, introCol = st.columns([.4, .02,.58])
 # Display PFP
 
 # Header code
 imgCol.image("pfp.jpg")
-introCol.write("*-Intro-*")
-for _ in range(9): introCol.write("")
+introCol.write("""
+# Sean Perry  
+Pricing Analyst  
+Aspiring Data Scientist
+""")
+# Make this a download button later.
+introCol.button(":page_with_curl: Download Resume")
+introCol.write(":email: seanep94@gmail.com")
+
+
 
 # Using shields.io for the buttons.
 introCol.write('''
-<p align="center">
+<p align="left">
     <a href="https://www.linkedin.com/in/seanp1994/">
         <img src="https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin" alt="Linkedin">
     </a>
     <a href="https://leetcode.com/sperry1994/">
         <img src="https://img.shields.io/badge/LeetCode-blue?style=flat&logo=leetcode" alt="Linkedin">
-    </a>S
+    </a>
 </p>
 ''', unsafe_allow_html=True)
+
+# Set as download button later.
 
 st.divider()
 
