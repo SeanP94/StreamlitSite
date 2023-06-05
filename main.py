@@ -39,7 +39,21 @@ introCol.write('''
 # Set as download button later.
 
 st.divider()
+st.write('''
+### Programming Skills
+:desktop_computer:Programming: Python, C++, Kotlin, Familiarity with Javascript and C#  
+:blue_book: Python Libraries: Scikit-Learn, Pandas, Numpy, Matplotlib  
+:minidisc:Databases: PostgreSQL, Microsoft SQL Server, MySQL  
+  
+### Experience  
+:mortar_board: Obtained my B.S. in Computer Science from California State University San Marcos    
+:bar_chart: 1.5 Years experience in data analytics.  
+:male-teacher: 1 years experience running a team and leading by example.  
+:open_file_folder: 2 years experience apart of an engineering team.  
+:telephone_receiver: 3 years of customer service experience. 
+''')
 
+st.divider()
 # Summary code
 summaryContainer = st.container()
 summaryContainer.header("Introduction")
