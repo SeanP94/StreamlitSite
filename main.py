@@ -1,5 +1,12 @@
 import streamlit as st
 
+st.set_page_config(
+    page_icon=":octopus:",
+    page_title="SP Portfolio Site",
+    layout="centered",
+    initial_sidebar_state="collapsed"
+)
+
 imgCol, introCol = st.columns([.3,.7])
 # Display PFP
 
