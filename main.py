@@ -1,6 +1,14 @@
 import streamlit as st
+from fpdf import FPDF
+import base64
+from pathlib import Path
+
+currDir = Path(__file__).parent 
+
+resumeDir = currDir / 'assets' / 'ResumeSeanPerry.pdf'
+
 st.set_page_config(
-        page_icon=":octopus:",
+        page_icon=":frog:",
         page_title="SP Portfolio Site",
         layout="centered",
         initial_sidebar_state="collapsed"
@@ -9,9 +17,8 @@ st.set_page_config(
 
 @st.cache_data
 def getResume():
-    with open("ResumeSeanPerry.pdf", 'rb') as pdf_file:
+    with open(resumeDir, 'rb') as pdf_file:
         resume = pdf_file.read()
-    print("resume")
     return resume
 
 # Main page configuration.
@@ -20,7 +27,7 @@ def homePage():
     # Display PFP
 
     # Header code
-    imgCol.image("pfp.jpg")
+    imgCol.image("assets/pfp.jpg")
     introCol.write("""
     # Sean Perry  
     Pricing Analyst  
@@ -30,7 +37,7 @@ def homePage():
     introCol.download_button(
         label=":page_with_curl: Download Resume",
         data=getResume(),
-        file_name='ResumeSeanPerry.pdf',
+        file_name=resumeDir.name,
         mime='application/octet-stream'
     )
     introCol.write(":email: seanep94@gmail.com")
@@ -59,11 +66,11 @@ def homePage():
     ### Programming Skills
     :desktop_computer:Programming: Python, C++, Kotlin, Familiarity with Javascript and C#  
     :blue_book: Python Libraries: Scikit-Learn, Pandas, Numpy, and Matplotlib  
-    :minidisc:Databases: PostgreSQL, Microsoft SQL Server, MySQL and Firestore
+    :minidisc:Databases: Microsoft SQL Server, MySQL and Firestore
     
     ### Experience  
     :mortar_board: Obtained my B.S. in Computer Science from California State University San Marcos    
-    :bar_chart: 1.5 Years experience in data analytics.  
+    :bar_chart: 1.5 years experience in data analytics.  
     :male-teacher: 1 years experience running a team and store operations.  
     :open_file_folder: 2 years experience on an engineering team.  
     :telephone_receiver: 3 years of customer service experience. 
