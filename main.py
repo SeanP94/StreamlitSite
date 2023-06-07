@@ -5,10 +5,16 @@ st.set_page_config(
         layout="centered",
         initial_sidebar_state="collapsed"
 )
+@st.cache_data
+def getResume():
+    with open("ResumeSeanPerry.pdf", 'rb') as pdf_file:
+        resume = pdf_file.read()
+    print("resume")
+    return resume
+
 # Main page configuration.
 def homePage():
-    
-
+    resume = getResume()
     imgCol, _, introCol = st.columns([.4, .02,.58])
     # Display PFP
 
@@ -20,7 +26,12 @@ def homePage():
     Aspiring Data Scientist
     """)
     # Make this a download button later.
-    introCol.button(":page_with_curl: Download Resume")
+    introCol.download_button(
+        label=":page_with_curl: Download Resume",
+        data=resume,
+        file_name='ResumeSeanPerry.pdf',
+        mime='application/octet-stream'
+    )
     introCol.write(":email: seanep94@gmail.com")
 
 
@@ -62,9 +73,9 @@ def homePage():
     summaryContainer = st.container()
     summaryContainer.header("Introduction")
     summaryContainer.write("""
-    &ensp;Hello my name is Sean, and thank you for taking the time to check out my Portfolio Website! I wanted to create a place to help me showcase projects and discuss some achievements to prospective hiring managers.  
+    &ensp;&ensp;Hello my name is Sean, and thank you for taking the time to check out my Portfolio Website! I wanted to create a place to help me showcase projects and discuss some achievements to prospective hiring managers.  
 
-    &ensp;To summarize myself I love data and researching problems that need to be solved. It's what my passion and driving force was for finishing my degree in Computer Science. I'd love to find a position that would allow me to expand and grow my skill set. I'm interested in engineering data pipelines, data cleansing, analyzing information, researching business problems, helping management find problems through data, and most importantly LEARNING MORE SKILLS!
+    &ensp;&ensp;To summarize myself I love data and researching problems that need to be solved. It's what my passion and driving force was for finishing my degree in Computer Science. I'd love to find a position that would allow me to expand and grow my skill set. I'm interested in engineering data pipelines, data cleansing, analyzing information, researching business problems, helping management find problems through data, and most importantly LEARNING MORE SKILLS!
 
 
     #### Some Career Achievements
