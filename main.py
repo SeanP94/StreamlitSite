@@ -5,6 +5,8 @@ st.set_page_config(
         layout="centered",
         initial_sidebar_state="collapsed"
 )
+
+
 @st.cache_data
 def getResume():
     with open("ResumeSeanPerry.pdf", 'rb') as pdf_file:
@@ -14,7 +16,6 @@ def getResume():
 
 # Main page configuration.
 def homePage():
-    resume = getResume()
     imgCol, _, introCol = st.columns([.4, .02,.58])
     # Display PFP
 
@@ -28,7 +29,7 @@ def homePage():
     # Make this a download button later.
     introCol.download_button(
         label=":page_with_curl: Download Resume",
-        data=resume,
+        data=getResume(),
         file_name='ResumeSeanPerry.pdf',
         mime='application/octet-stream'
     )
