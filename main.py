@@ -4,15 +4,21 @@ import base64
 from pathlib import Path
 
 currDir = Path(__file__).parent 
-
 resumeDir = currDir / 'assets' / 'ResumeSeanPerry.pdf'
+cssMain = currDir / 'styles' / 'main.css'
 
 st.set_page_config(
         page_icon=":frog:",
         page_title="SP Portfolio Site",
         layout="centered",
-        initial_sidebar_state="collapsed"
+        #initial_sidebar_state="collapsed"
 )
+
+
+# Read in custom CSS
+with open(cssMain, 'r') as cssData:
+    st.markdown(f'<style>{cssData.read()}</style>', unsafe_allow_html=True)
+
 
 
 @st.cache_data
@@ -119,3 +125,4 @@ homePage()
 
 ######## SideBar ########
 st.sidebar.button("Big Button :o")
+
