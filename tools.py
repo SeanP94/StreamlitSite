@@ -1,7 +1,12 @@
 import streamlit as st
 from st_pages import show_pages, Page
+from pathlib import Path
 
 
+currDir = Path(__file__).parent 
+
+homePage = currDir / "main.py"
+titanicPage = currDir / 'pages' / 'titanic.py'
 
 def setStPageConfig(pageTitle, pageIcon=":frog:"):
     st.set_page_config(
@@ -13,8 +18,8 @@ def setStPageConfig(pageTitle, pageIcon=":frog:"):
 
 def sideBarLogic():
     show_pages([
-        Page("main.py", "Home Page", ":home:"),
-        Page("pages/titanic.py","Kaggle Project: Titanic", ":ship:")
+        Page(homePage, "Home Page"),
+        Page(titanicPage,"Kaggle Project: Titanic")
     ])
 
 

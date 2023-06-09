@@ -3,14 +3,20 @@ from fpdf import FPDF
 import base64
 from pathlib import Path
 import tools as myTools
+from st_pages import show_pages_from_config
 
 currDir = Path(__file__).parent 
 resumeDir = currDir / 'assets' / 'ResumeSeanPerry.pdf'
 pfp = currDir / 'assets' / 'pfp.jpg'
 cssMain = currDir / 'styles' / 'main.css'
+homePage = currDir / "main.py"
+titanicPage = currDir / 'pages' / 'titanic.py'
+
+
 
 myTools.setStPageConfig("SP Resume Website")
-myTools.sideBarLogic()
+show_pages_from_config()
+
 # Read in custom CSS
 with open(cssMain, 'r') as cssData:
     st.markdown(f'<style>{cssData.read()}</style>', unsafe_allow_html=True)
@@ -53,10 +59,13 @@ introCol.write('''
         <img src="https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin" alt="Linkedin">
     </a>
     <a href="https://leetcode.com/sperry1994/">
-        <img src="https://img.shields.io/badge/LeetCode-blue?style=flat&logo=leetcode" alt="Linkedin">
+        <img src="https://img.shields.io/badge/LeetCode-blue?style=flat&logo=leetcode" alt="Leetcode">
     </a>
     <a href="https://github.com/SeanP94">
-        <img src="https://img.shields.io/badge/Github-blue?style=flat&logo=github" alt="Linkedin">
+        <img src="https://img.shields.io/badge/Github-blue?style=flat&logo=github" alt="Github">
+    </a>
+    <a href="https://www.datacamp.com/profile/Seanp94">
+        <img src="https://img.shields.io/badge/DataCamp-blue?style=flat&logo=datacamp" alt="DataCamp">
     </a>
 </p>
 ''', unsafe_allow_html=True)

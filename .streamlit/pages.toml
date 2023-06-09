@@ -1,0 +1,7 @@
+[[pages]]
+path = "main.py"
+name = "Home Page"
+
+[[pages]]
+path = "pages/titanic.py"
+name = "Kaggle: Titanic Project"
