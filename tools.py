@@ -4,8 +4,13 @@ from pathlib import Path
 
 
 currDir = Path(__file__).parent 
-homePage = currDir / "streamlit_app.py"
-titanicPage = currDir / 'pages' / 'titanic.py'
+
+
+class assets:
+    homePage = currDir / 'pages' / 'home.py'
+    titanicPage = currDir / 'pages' / 'titanic.py'
+    pfp = currDir / 'assets' / 'pfp.png'
+    resume = currDir / 'assets' / 'SeanPerryResumeDA.pdf'
 
 
 
@@ -18,7 +23,14 @@ def setStPageConfig(pageTitle, pageIcon=":frog:"):
             #initial_sidebar_state="collapsed"
     )
 
-
+def pageData():
+    show_pages_from_config()
+    # show_pages(
+    #     [
+    #         Page(homePage, "Fuck this"),
+    #         Page(titanicPage, "Stupid Fucking shit")
+    #     ]
+    # )
 
 """
 

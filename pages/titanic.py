@@ -1,5 +1,5 @@
 import streamlit as st
-from st_pages import add_page_title, Page
+from st_pages import add_page_title, Page, show_pages_from_config
 import tools as myTools
 
 
