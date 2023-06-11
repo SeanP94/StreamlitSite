@@ -1,13 +1,14 @@
 import streamlit as st
-from fpdf import FPDF
-import base64
 from pathlib import Path
 import tools as myTools
 from st_pages import show_pages_from_config
 
+show_pages_from_config()
+
 currDir = Path(__file__).parent 
+
 resumeDir = currDir / 'assets' / 'SeanPerryResumeDA.pdf'
-pfp = currDir / 'assets' / 'pfp.jpg'
+pfp = currDir / 'assets' / 'pfp.png'
 cssMain = currDir / 'styles' / 'main.css'
 homePage = currDir / "main.py"
 titanicPage = currDir / 'pages' / 'titanic.py'
@@ -15,7 +16,7 @@ titanicPage = currDir / 'pages' / 'titanic.py'
 
 
 myTools.setStPageConfig("SP Resume Website")
-show_pages_from_config()
+
 
 # Read in custom CSS
 with open(cssMain, 'r') as cssData:
