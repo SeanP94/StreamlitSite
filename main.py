@@ -6,7 +6,7 @@ import tools as myTools
 from st_pages import show_pages_from_config
 
 currDir = Path(__file__).parent 
-resumeDir = currDir / 'assets' / 'ResumeSeanPerry.pdf'
+resumeDir = currDir / 'assets' / 'SeanPerryResumeDA.pdf'
 pfp = currDir / 'assets' / 'pfp.jpg'
 cssMain = currDir / 'styles' / 'main.css'
 homePage = currDir / "main.py"
@@ -23,9 +23,8 @@ with open(cssMain, 'r') as cssData:
 
 
 
-@st.cache_data
 def getResume():
-    with open(resumeDir, 'rb') as pdf_file:
+    with open(str(resumeDir), 'rb') as pdf_file:
         resume = pdf_file.read()
     return resume
 
@@ -45,7 +44,7 @@ Aspiring Data Scientist
 introCol.download_button(
     label=":page_with_curl: Download Resume",
     data=getResume(),
-    file_name=resumeDir.name,
+    file_name="SeanPerryDA_Resume.pdf",
     mime='application/octet-stream'
 )
 introCol.write(":email: seanep94@gmail.com")
