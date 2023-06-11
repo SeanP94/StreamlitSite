@@ -1,7 +1,10 @@
 [[pages]]
-path = "main.py"
+path = "streamlit_app.py"
 name = "Home Page"
+icon = ":house:"
 
 [[pages]]
 path = "pages/titanic.py"
-name = "Kaggle: Titanic Project"
+name = "Kaggle : Titanic"
+icon = ":boat:"
+in_section = false
