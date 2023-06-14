@@ -15,7 +15,7 @@ class assets:
     pfp = currDir / 'assets' / 'pfp.png'
     resume = currDir / 'assets' / 'SeanPerryResumeDA.pdf'
     cssFile = currDir / 'styles' / 'main.css'
-
+    titanicTrain = currDir / 'assets' / 'train.csv'
 
 
 def setStPageConfig(pageTitle, pageIcon=":frog:"):
