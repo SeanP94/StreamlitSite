@@ -1,3 +1,7 @@
 streamlit
 pathlib
 st_pages
+seaborn
+numpy
+pandas
+matplotlib

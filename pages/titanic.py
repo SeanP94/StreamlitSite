@@ -8,10 +8,18 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 # Set the dataset as both the training and test data.
-titanic_data = pd.read_csv(assets.titanicTrain)
 
 
+sns.set_style('darkgrid')
 myTools.setStPageConfig("Kaggle:Titanic", pageIcon=":ship:")
+
+def stCorrMatrix(df: pd.DataFrame):
+    '''Draws the correlation matrix for a dataframe in streamlit.'''
+    fig = plt.figure(figsize=(10, 6))
+    sns.heatmap(df.corr(), cmap="YlGnBu")
+    st.pyplot(fig) # Draws the figure onto the streamlit site.
+
+titanic_data = pd.read_csv(assets.titanicTrain)
 
 
 st.header("Titanic As a Beginner Kaggle Exercise")
@@ -35,9 +43,14 @@ titanic_data = pd.read_csv("titanic/train.csv")
 st.dataframe(titanic_data)
 st.divider()
 st.write("""
-Now that we have the data imported, we want to start exploring it with some graphs.
+Now that we have the data imported, we want to start exploring it with the correlation matrix heatmap below.
 """)
 st.divider() 
+stCorrMatrix(titanic_data)
+st.write("""
+We see that nothing is too HEAVILY correlated, but we do see that a couple things are around .4 and -.4
+""")
+
 
 st.sidebar.title("Kaggle Data Project")
 st.sidebar.divider()
