@@ -3,8 +3,3 @@ path = "pages/home.py"
 name = "Home Page"
 icon = ":house:"
 
-
-[[pages]]
-path = "pages/titanic.py"
-name = "Kaggle : Titanic"
-icon = ":boat:"

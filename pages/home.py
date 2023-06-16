@@ -96,6 +96,8 @@ def setupDiary():
         - Currently I am working on expanding my SQL skills.
         - Expanding my statistics knowledge. 
         - Learning cloud computing concepts to obtain either a certificate for Azure.  
+        - Began setting up a personal database to store general .csv data I gather from Kaggle or webscrape
+            - Began learning PHP MyAdmin to work with the database.
 
     - May 2023:
         - Began work on my PC Price Tracker project. It's on hold for now until I have this site built to a point.   
