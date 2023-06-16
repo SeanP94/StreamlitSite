@@ -1,8 +1,8 @@
 import streamlit as st
 from st_pages import show_pages_from_config
 from pathlib import Path
-
-
+import json
+import mysql.connector
 currDir = Path(__file__).parent 
 
 
@@ -57,7 +57,7 @@ class SqlInteractions:
         """
         Singular Input, resets the 
         """
-        def wrapper(self, **):
+        def wrapper(self, **x):
             with open(".secrets.json", 'r') as f:
                 data = json.load(f)
                 connection = mysql.connector.connect(
@@ -69,7 +69,7 @@ class SqlInteractions:
                 del data # We want to not keep .secrets in memory :) 
             self.__cur = connection.cursor()
             print("Opening Connection.")
-            func(self, **x)
+            func(self)
             print("Closing Connection.")
             self.__cur.close()
         return wrapper
@@ -80,6 +80,7 @@ class SqlInteractions:
         Used to return the table names for the class to function properly
         """
         pass
+
     @nonCommitWrapper
     def getTableNames2(self, z):
         """
