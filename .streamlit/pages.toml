@@ -1,5 +1,9 @@
 [[pages]]
 path = "pages/home.py"
-name = "Home Page"
+name = "Resume"
 icon = ":house:"
 
+[[pages]]
+path = "pages/project.py"
+name = "Project Page"
+icon = ":house:"

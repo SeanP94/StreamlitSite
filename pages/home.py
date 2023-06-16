@@ -1,11 +1,10 @@
 import streamlit as st
 from pathlib import Path
-from st_pages import add_page_title, Page, show_pages_from_config
 from tools import assets
-import tools as myTools
+#import tools as myTools
 
-
-myTools.setStPageConfig("Home Page", pageIcon=":house:")
+from st_pages import show_pages_from_config, show_pages, Page, Section
+#myTools.setStPageConfig("Home Page", pageIcon=":house:")
 
 
 def getResume():
@@ -119,3 +118,4 @@ setupAboutMe()
 st.divider()
 setupAboutMe()
 setupSidebar()
+#myTools.pageData()
