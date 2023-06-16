@@ -35,14 +35,56 @@ def setStPageConfig(pageTitle, pageIcon=":frog:"):
 def pageData():
     show_pages_from_config()
 
+class SqlInteractions:
+    
+    def __init__(self):
+        """
+        Launches the sql object
+        Initializes core functionality and creates a self.__cur object.
+        """
+        # with open(".secrets.json", 'r') as f:
+        #     data = json.load(f)
+        #     connection = mysql.connector.connect(
+        #         host=data['host'],
+        #         database=data["database"],
+        #         user=data['user'],
+        #         passwd=data['password']
+        #     )
+        #     del data # We want to not keep .secrets in memory :) 
+        # self.__cur = connection.cursor()
 
-"""
+    def nonCommitWrapper(func):
+        """
+        Singular Input, resets the 
+        """
+        def wrapper(self, **):
+            with open(".secrets.json", 'r') as f:
+                data = json.load(f)
+                connection = mysql.connector.connect(
+                    host=data['host'],
+                    database=data["database"],
+                    user=data['user'],
+                    passwd=data['password']
+                )
+                del data # We want to not keep .secrets in memory :) 
+            self.__cur = connection.cursor()
+            print("Opening Connection.")
+            func(self, **x)
+            print("Closing Connection.")
+            self.__cur.close()
+        return wrapper
 
-
-NOTES:
-
-Emoji codes:
-https://share.streamlit.io/streamlit/emoji-shortcodes
-
-
-"""
+    @nonCommitWrapper
+    def getTableNames(self):
+        """
+        Used to return the table names for the class to function properly
+        """
+        pass
+    @nonCommitWrapper
+    def getTableNames2(self, z):
+        """
+        Used to return the table names for the class to function properly
+        """
+        pass
+    def getTableCopy(tableName):
+        pass
